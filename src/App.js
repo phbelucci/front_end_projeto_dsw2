@@ -1,8 +1,8 @@
-import {BrowserRouter as Router} from 'react-router-dom'
-import Routes from './routes'
-import './App.css';
+import {
+  BrowserRouter as Router,
+} from "react-router-dom";
 
-import { Container } from './components/Container/Container'
+import Routes from './routes'
 
 import styled from 'styled-components'
 
@@ -18,10 +18,11 @@ function App() {
   `;
   return (
     <App>
-        <Router>
-          <Routes></Routes>
-        </Router>
+      <Router>
+        <Routes></Routes>
+      </Router>
     </App>
+
   );
 }
 

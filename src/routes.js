@@ -1,19 +1,22 @@
-import React from 'react'
+import React from 'react';
 import {
-    Router,
-    Route
+    BrowserRouter as Router,
+    Route,
+    Switch
 } from 'react-router-dom';
 
 import Favoritos from './pages/Favoritos'
 import Home from './pages/Home'
 import Perfil from './pages/Perfil'
 
-export default function RoutesMain(){
+export default function RoutesMain() {
     return (
         <Router>
-            <Route path="/" element={<Home/>}></Route>
-            <Route path="/perfil" element={<Perfil/>}></Route>
-            <Route path="/favoritos" element={<Favoritos/>}></Route>
+            <Switch>
+                <Route path="/" exact><Home /></Route>
+                <Route path="/perfil"><Perfil /></Route>
+                <Route path="/favoritos" ><Favoritos /></Route>
+            </Switch>
         </Router>
     )
 }

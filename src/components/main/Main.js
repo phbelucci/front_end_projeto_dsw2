@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import styled from 'styled-components'
 import home from '../../assets/home.svg'
@@ -9,13 +10,16 @@ export const Main = ({ props }) => {
     const options = [
         {
             nome: "Home",
-            icon: home
+            icon: home,
+            link: '/'
         }, {
             nome: "Perfil",
-            icon: profile
+            icon: profile,
+            link: '/perfil'
         }, {
             nome: "Favoritos",
-            icon: favorite
+            icon: favorite,
+            link: '/favoritos'
         }
     ]
 
@@ -24,40 +28,53 @@ export const Main = ({ props }) => {
         justify-content: space-between;
         height: 60vh;
         width: 100%;
+        padding-top: 1%;
+        padding-bottom: 1%;
     `;
     const SideBar = styled.div`
         display: flex;
         flex-direction: column;
         align-items: center;
+        padding-top: 2%;
+        padding-bottom: 2%;
         width: 20%;
-        height: 60vh;
-        border: 2px solid red;
+        height: 55vh;
+        background: linear-gradient(305.85deg, rgba(11, 55, 64, 0.76) 44.36%, rgba(102, 126, 234, 0) 401.19%);
+        filter: drop-shadow(2px 2px 5px #23DDA9);
+        border-radius: 5px;
     `;
 
     const Map = styled.div`
         width: 78%;
         height: 60vh;
-        border: 2px solid red;
     `;
 
     const Option = styled.div`
+
         display: flex;
         align-items: center;
         justify-content: center;
         width: 90%;
         height: 10%;
-        border: 2px solid blue;
+        background: linear-gradient(305.85deg, rgba(11, 55, 64, 0.76) 44.36%, rgba(102, 126, 234, 0) 401.19%);
+        filter: drop-shadow(2px 2px 5px #2DA9);
+        border-radius: 5px;
 
-        h5 {
+        a { 
+
+            h5 {
             width: 80%;
             height: 10%;
             padding-left: 5%;
-
+            }
         }
+
+        
 
         &:hover{
 
             background-color: black;
+            cursor: pointer;
             
             Icon {
                 fill: #FFF;
@@ -85,8 +102,10 @@ export const Main = ({ props }) => {
             console.log(item.icon)
             return (
                 <Option key={item.nome} >
-                    <Icon icon={item.icon}></Icon>
-                    <h5>{item.nome}</h5>
+                    <Link to={item.link}>
+                        <Icon icon={item.icon}></Icon>
+                        <h5>{item.nome}</h5>
+                    </Link>
                 </Option>
             )
         })

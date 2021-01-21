@@ -27,15 +27,21 @@ export const Footer = ({ props }) => {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        padding: 2%;
         width: 100%;
         height: 20vh;
-        border: 2px solid red;
+        background: linear-gradient(305.85deg, rgba(11, 55, 64, 0.76) 44.36%, rgba(102, 126, 234, 0) 401.19%);
+        filter: drop-shadow(2px 2px 5px #23DDA9);
+        border-radius: 5px;
     `;
 
     const Card = styled.span`
         display: flex;
         align-items: center;
-        border: 2px solid red;
+        color: #FFF;
+        background: linear-gradient(305.85deg, rgba(11, 55, 64, 0.76) 44.36%, rgba(102, 126, 234, 0) 401.19%);
+        filter: drop-shadow(2px 2px 5px #23DDA9);
+        border-radius: 5px;
         width: 30%;
         
     `;

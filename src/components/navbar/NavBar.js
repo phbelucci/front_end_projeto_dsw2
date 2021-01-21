@@ -15,11 +15,16 @@ export const NavBar = ({ props }) => {
     }
 
     const Container = styled.div`
+
+        
         display: flex;  
         width: 100%;
         height: 10vh;
         justify-content: space-between;
-        border: 2px solid red;
+        background: linear-gradient(305.85deg, rgba(11, 55, 64, 0.76) 44.36%, rgba(102, 126, 234, 0) 401.19%);
+        filter: drop-shadow(2px 2px 5px #23DDA9);
+        border-radius: 5px;
+
 
     `;
 
@@ -29,7 +34,8 @@ export const NavBar = ({ props }) => {
         justify-content: center;
         width: 20%;
         height: 100%;
-        border: 2px solid red;
+        color: #FFF;
+
         svg  {
             width: 30%;
             height: 30%;
@@ -40,7 +46,6 @@ export const NavBar = ({ props }) => {
 
     const Search = styled.span`
         width: 78%;
-        border: 2px solid red;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -48,12 +53,16 @@ export const NavBar = ({ props }) => {
         svg {
             width: 10%;
             height: 30%;
+            color: #FFF;
             background-image: url(${iSearch});
             background-repeat: no-repeat;
         }
         input {
             width: 80%;
-            height: 30%;
+            height: 60%;
+            text-indent: 5%;
+            border-radius: 5px;
+
         }
     `;
 
