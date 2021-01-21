@@ -1,6 +1,9 @@
+import {BrowserRouter as Router} from 'react-router-dom'
+import Routes from './routes'
 import './App.css';
 
 import { Container } from './components/Container/Container'
+
 import styled from 'styled-components'
 
 function App() {
@@ -13,12 +16,11 @@ function App() {
     justify-content: center;
 
   `;
-
-
   return (
     <App>
-      <Container>
-      </Container>
+        <Router>
+          <Routes></Routes>
+        </Router>
     </App>
   );
 }

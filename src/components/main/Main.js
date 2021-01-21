@@ -1,17 +1,21 @@
 import React from 'react'
 
-import { Layout, Menu } from 'antd';
 import styled from 'styled-components'
-
-
+import home from '../../assets/home.svg'
+import profile from '../../assets/profile.svg'
+import favorite from '../../assets/favorite.svg'
 export const Main = ({ props }) => {
 
     const options = [
-        {   
-            nome: "Bem vindo"
-            icon: 
-        },{
-
+        {
+            nome: "Home",
+            icon: home
+        }, {
+            nome: "Perfil",
+            icon: profile
+        }, {
+            nome: "Favoritos",
+            icon: favorite
         }
     ]
 
@@ -37,32 +41,62 @@ export const Main = ({ props }) => {
     `;
 
     const Option = styled.div`
-
+        display: flex;
+        align-items: center;
+        justify-content: center;
         width: 90%;
-        height: 100%;
+        height: 10%;
+        border: 2px solid blue;
 
-        svg {
-            width: 50%;
-            height: 50%;
-            background-image: ${props => {props.icon}}        
+        h5 {
+            width: 80%;
+            height: 10%;
+            padding-left: 5%;
+
         }
 
-    
+        &:hover{
+
+            background-color: black;
+            
+            Icon {
+                fill: #FFF;
+                stroke: #FFF;
+                stroke-width: 5;
+            }
+
+            h5 {
+                color: white;
+            }
+        }
+    `;
+
+    const Icon = styled.svg`
+        width: 24px;
+        height: 24px;
+        background-image: url(${props => props.icon});
+        background-repeat: no-repeat;
     `;
 
     const listOptions = (options) => {
 
-        return (
-            <Option>
-                <svg icon={options.icon}></svg>
-            </Option>
-        )
+        return options.map(item => {
+            console.log(item.nome)
+            console.log(item.icon)
+            return (
+                <Option key={item.nome} >
+                    <Icon icon={item.icon}></Icon>
+                    <h5>{item.nome}</h5>
+                </Option>
+            )
+        })
+
     }
 
     return (
         <Container>
             <SideBar>
-                {listOptions()}
+                {listOptions(options)}
             </SideBar>
             <Map >
 
