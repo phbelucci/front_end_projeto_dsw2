@@ -6,7 +6,7 @@ import home from '../../assets/home.svg'
 import profile from '../../assets/profile.svg'
 import favorite from '../../assets/favorite.svg'
 import Favorito from '../favoritos/Favorito'
-import Map from '../Map/Map'
+import Maps from '../Map/Maps'
 import Perfil from '../perfil/Perfil'
 export const Main = ({ props }) => {
 
@@ -125,20 +125,11 @@ export const Main = ({ props }) => {
         var url_atual = window.location.href;
         const BASE_ULR = 'http://localhost:3000';
 
-        if(url_atual === BASE_ULR){
-            return <Map></Map>
-        }
-        if(url_atual === `${BASE_ULR}/perfil`){
-            return <Perfil></Perfil>
-        }
-
-        if(url_atual === `${BASE_ULR}/favoritos`){
-            return <Favorito></Favorito>
-        }
-        console.log(`${BASE_ULR}/perfil`)
-        
         console.log(url_atual)
 
+        if(url_atual === BASE_ULR) return <Maps></Maps>
+        if(url_atual === `${BASE_ULR}/perfil`) return <Perfil></Perfil>
+        if(url_atual === `${BASE_ULR}/favoritos`) return <Favorito></Favorito>
     }
 
     return (

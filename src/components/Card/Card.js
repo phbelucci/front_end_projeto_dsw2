@@ -40,13 +40,13 @@ function Card({posto}) {
   return (
     <Card key={posto.id}>
       <Imagem>
-        <img src={posto.urlImage}></img>
+        <img src={posto.urlImage} alt="icon"></img>
       </Imagem>
       <Content>
-        <h5>{posto.nome}</h5>
-        <h5>{posto.endereco}</h5>
-        <h5>Aberto 24hrs? {posto.is24hrs}</h5>
-        <h5>Avaliação: {posto.stars}</h5>
+        <h6>{posto.nome}</h6>
+        <h6>{posto.endereco}</h6>
+        <h6>Aberto 24hrs? {posto.is24hrs}</h6>
+        <h6>Avaliação: {posto.stars}</h6>
       </Content>
     </Card>
   )
