@@ -54,6 +54,7 @@ export const NavBar = ({ props }) => {
             width: 10%;
             height: 30%;
             color: #FFF;
+            fill: #FFF;
             background-image: url(${iSearch});
             background-repeat: no-repeat;
         }
@@ -71,7 +72,7 @@ export const NavBar = ({ props }) => {
         <Container>
             <LogoAndTitle>
                 <svg></svg>
-                {title}
+                <h5>{title}</h5>                
             </LogoAndTitle>
             <Search>
                 <svg></svg>

@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { Main } from '../components/main/Main'
 import { NavBar } from '../components/navbar/NavBar'
 import { Footer } from '../components/footer/Footer'
+import {Map} from '../components/Map/Map'
 
 function Home() {
 

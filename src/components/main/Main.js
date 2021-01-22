@@ -1,17 +1,23 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Link } from 'react-router-dom'
 
 import styled from 'styled-components'
 import home from '../../assets/home.svg'
 import profile from '../../assets/profile.svg'
 import favorite from '../../assets/favorite.svg'
+import Favorito from '../favoritos/Favorito'
+import Map from '../Map/Map'
+import Perfil from '../perfil/Perfil'
 export const Main = ({ props }) => {
+
+    
+    const [showContent, setShowContent] = useState(0) 
 
     const options = [
         {
             nome: "Home",
             icon: home,
-            link: '/'
+            link: "/"
         }, {
             nome: "Perfil",
             icon: profile,
@@ -44,7 +50,7 @@ export const Main = ({ props }) => {
         border-radius: 5px;
     `;
 
-    const Map = styled.div`
+    const MainContainer = styled.div`
         width: 78%;
         height: 60vh;
     `;
@@ -53,24 +59,27 @@ export const Main = ({ props }) => {
 
         display: flex;
         align-items: center;
-        justify-content: center;
+        padding-left: 2%;
+        margin-top: 2%;
         width: 90%;
         height: 10%;
         background: linear-gradient(305.85deg, rgba(11, 55, 64, 0.76) 44.36%, rgba(102, 126, 234, 0) 401.19%);
         filter: drop-shadow(2px 2px 5px #2DA9);
         border-radius: 5px;
 
-        a { 
-
-            h5 {
-            width: 80%;
-            height: 10%;
-            padding-left: 5%;
-            }
+        a {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
-
         
-
+        h5 {
+            width: 60%;
+            height: 10%;
+            margin-left: 24px;
+            color: #FFF;
+        }
+        
         &:hover{
 
             background-color: black;
@@ -112,14 +121,34 @@ export const Main = ({ props }) => {
 
     }
 
+    const handleContent = () => {
+        var url_atual = window.location.href;
+        const BASE_ULR = 'http://localhost:3000';
+
+        if(url_atual === BASE_ULR){
+            return <Map></Map>
+        }
+        if(url_atual === `${BASE_ULR}/perfil`){
+            return <Perfil></Perfil>
+        }
+
+        if(url_atual === `${BASE_ULR}/favoritos`){
+            return <Favorito></Favorito>
+        }
+        console.log(`${BASE_ULR}/perfil`)
+        
+        console.log(url_atual)
+
+    }
+
     return (
         <Container>
             <SideBar>
                 {listOptions(options)}
             </SideBar>
-            <Map >
-
-            </Map>
+            <MainContainer >
+                {handleContent()}
+            </MainContainer>
         </Container>
     )
 }
