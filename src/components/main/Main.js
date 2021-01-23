@@ -123,13 +123,13 @@ export const Main = ({ props }) => {
 
     const handleContent = () => {
         var url_atual = window.location.href;
-        const BASE_ULR = 'http://localhost:3000';
+        const BASE_URL = 'http://localhost:3000';
 
         console.log(url_atual)
 
-        if(url_atual === BASE_ULR) return <Maps></Maps>
-        if(url_atual === `${BASE_ULR}/perfil`) return <Perfil></Perfil>
-        if(url_atual === `${BASE_ULR}/favoritos`) return <Favorito></Favorito>
+        if(url_atual === BASE_URL) return <Maps></Maps>
+        if(url_atual === `${BASE_URL}/perfil`) return <Perfil></Perfil>
+        if(url_atual === `${BASE_URL}/favoritos`) return <Favorito></Favorito>
     }
 
     return (
