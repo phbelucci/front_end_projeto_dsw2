@@ -24,10 +24,22 @@ function Perfil() {
                     </label>
                 </PerfilInfos>
                 <PerfilButton>SALVAR</PerfilButton>
-            </PerfilDados>
-            
+            </PerfilDados> 
         )
     }
+
+    // const handlePerfilFavoritos = () => {
+    //     return (
+    //         // <>
+    //         // <Title>
+                
+    //         // </Title>
+    //         // <Favoritos>
+                
+    //         // </Favoritos>
+    //         // </>
+    //     )
+    // }
 
 
     const ContainerPerfil = styled.div`
@@ -125,7 +137,9 @@ function Perfil() {
             <ContainerPerfilDados>
                 {handlePerfil()}
             </ContainerPerfilDados>
-            <ContainerPerfilFavoritos></ContainerPerfilFavoritos>
+            <ContainerPerfilFavoritos>
+                {/* {handlePerfilFavoritos()} */}
+            </ContainerPerfilFavoritos>
         </ContainerPerfil>
     );
 }
