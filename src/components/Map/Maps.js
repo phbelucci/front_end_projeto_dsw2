@@ -11,14 +11,15 @@ function Maps() {
     const position = [-22.906, -47.062]
 
     useEffect(() => {
-        console.log('entrou no useEffect')
-
-        api.get('/chargeStation', (req, res) => {
-            console.log(res.data);
-            return res.data;
+        api.get('chargeStation')
+        .then((response) => {
+            console.log(response.data);
         })
+        .catch((err) => {
+            console.error("Erro" + err);
+        });
 
-    }, [])
+    }, []);
 
     return (
 
