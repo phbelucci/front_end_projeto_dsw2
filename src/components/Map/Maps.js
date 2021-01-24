@@ -8,7 +8,7 @@ function Maps() {
     const [postos, setPostos] = useState([]);
     const [popup, setPopup] = useState(true);
 
-    const position = [-22.906, -47.062]
+    const position = [-22.915777, -47.065287]
 
     useEffect(() => {
         api.get('chargeStation')
@@ -23,17 +23,19 @@ function Maps() {
 
     return (
 
-            <MapContainer id="mapid" center={position} zoom={13} scrollWheelZoom={false}>
-                <TileLayer
-                    attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                />
-                <Marker position={position}>
-                    <Popup>
-                        A pretty CSS3 popup. <br /> Easily customizable.
-                    </Popup>
-                </Marker>
-            </MapContainer>
+        <MapContainer id="mapid" center={position} zoom={13} scrollWheelZoom={false}>
+            <TileLayer
+                attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+
+            <Marker position={position}>
+                <Popup>
+
+                </Popup>
+            </Marker>
+
+        </MapContainer>
 
     );
 }
