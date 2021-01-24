@@ -11,11 +11,17 @@ function Maps() {
     const position = [-22.915777, -47.065287]
 
     useEffect(() => {
-        api.get('chargeStation')
-        .then((response) => {
-            console.log(response.data);
-        })
-        .catch((err) => {
+        // Lista depostos
+        api.get('chargeStation').then((response) => {
+            console.log("Postos: ", response.data);
+        }).catch((err) => {
+            console.error("Erro" + err);
+        });
+
+        // Postos destaque
+        api.get('chargeStation/highlights').then((response) => {
+            console.log("Destaques: ", response.data);
+        }).catch((err) => {
             console.error("Erro" + err);
         });
 

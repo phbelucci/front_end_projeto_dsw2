@@ -1,7 +1,9 @@
 import React from 'react';
-import styled from 'styled-components'
-import logo from '../assets/offline_bolt-24px.svg'
-import { Link } from 'react-router-dom'
+import styled from 'styled-components';
+import logo from '../assets/offline_bolt-24px.svg';
+import { Link } from 'react-router-dom';
+import api from '../api/api';
+
 
 function Cadastro() {
 
@@ -68,34 +70,47 @@ function Cadastro() {
         }
     `;
 
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        const newUser = {
+            "name": event.target.name.value,
+            "email" : event.target.email.value,
+            "password" :  event.target.password.value,
+            "urlImage" : event.target.foto.value,
+        };
+        
+        api.post('users/', newUser)
+        .then( (response) => {
+            console.log(response);
+        })
+        .catch( (err) => {
+            console.log("Erro", err);
+        })
+    }
+
     const handleFormulario = () => {
         return (
-            <Form type="submit">
+            <Form onSubmit={handleSubmit}>
                 <LogoAndTitle>
                     <svg />
                     <h5>Clean Energy</h5>
                 </LogoAndTitle>
                 <label>Nome</label>
-                <input id="name"></input>
+                <input type="text" id="name"></input>
                 <label>Email</label>
-                <input id="email"></input>
+                <input type="email" id="email"></input>
                 <label>Senha</label>
                 <input type="password" id="password"></input>
                 <label>Foto</label>
                 <input id="foto"></input>
-                <Link to={"/login"}>
-                    <button onSubmit={(e) => handleSubmit(e)} style={{ marginBottom: '30px' }}>Cadastrar</button>
-                </Link>
+                <Link to={"/login"}></Link>
+                <input type="submit" value="Cadastrar" style={{ marginBottom: '30px' }}/>
                 <Link to={"/login"}>
                     <button>Já sou cadastrado...</button>
                 </Link>
             </Form>
         )
-    }
-
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        console.log(e)
     }
 
     return <ContainerCadastro>

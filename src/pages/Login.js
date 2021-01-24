@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components'
 import logo from '../assets/offline_bolt-24px.svg'
 import { Link } from 'react-router-dom'
+import api from '../api/api';
 
 function Login() {
 
@@ -68,18 +69,36 @@ function Login() {
         }
     `;
 
+    const loginSubmitHandler = (event) => {
+        event.preventDefault();
+
+        const login = {
+            "email" : event.target.email.value,
+            "password" :  event.target.password.value,
+        };
+        
+        api.post('users/login', login)
+        .then( (response) => {
+            console.log(response);
+        })
+        .catch( (err) => {
+            console.log("Erro", err);
+        })
+    };
+
     const handleFormulario = () => {
         return (
-            <Form>
+            <Form onSubmit={loginSubmitHandler}>
                 <LogoAndTitle>
                     <svg />
                     <h5>Clean Energy</h5>
                 </LogoAndTitle>
                 <label>Email</label>
-                <input></input>
+                <input type='email' id='email'/>
                 <label>Senha</label>
-                <input></input>
-                <Link to="/home"><button>Login</button></Link>
+                <input type='password' id='password'/>
+                <Link to="/home"></Link>
+                <input type='submit' value="Login"/>
                 <Link to="/"><button>Não sou cadastrado...</button></Link>
             </Form>
         )
