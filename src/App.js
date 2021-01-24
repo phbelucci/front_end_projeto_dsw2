@@ -11,6 +11,7 @@ function App() {
   const App = styled.div`
   
     width: 100vw;
+    height: 90vh;
     display: flex;
     align-items: center;
     justify-content: center;

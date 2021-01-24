@@ -17,7 +17,7 @@ export const Main = ({ props }) => {
         {
             nome: "Home",
             icon: home,
-            link: "/"
+            link: "/home"
         }, {
             nome: "Perfil",
             icon: profile,
@@ -126,8 +126,7 @@ export const Main = ({ props }) => {
         const BASE_URL = 'http://localhost:3000/';
 
         console.log(url_atual)
-
-        if(url_atual === BASE_URL) return <Maps></Maps>
+        if(url_atual === `${BASE_URL}home`) return <Maps></Maps>
         if(url_atual === `${BASE_URL}perfil`) return <Perfil></Perfil>
         if(url_atual === `${BASE_URL}favoritos`) return <Favorito></Favorito>
     }
