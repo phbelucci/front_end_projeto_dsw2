@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
+import { MapConsumer, MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
 import '../../App.css'
 import api from '../../api/api'
 
@@ -8,19 +8,13 @@ function Maps() {
     const [postos, setPostos] = useState([]);
     const [popup, setPopup] = useState(true);
 
-    const position = [-22.915777, -47.065287]
+    let position = []
 
     useEffect(() => {
         // Lista depostos
         api.get('chargeStation').then((response) => {
+            setPostos(response.data)
             console.log("Postos: ", response.data);
-        }).catch((err) => {
-            console.error("Erro" + err);
-        });
-
-        // Postos destaque
-        api.get('chargeStation/highlights').then((response) => {
-            console.log("Destaques: ", response.data);
         }).catch((err) => {
             console.error("Erro" + err);
         });
@@ -29,17 +23,26 @@ function Maps() {
 
     return (
 
-        <MapContainer id="mapid" center={position} zoom={13} scrollWheelZoom={false}>
+        <MapContainer id="mapid" center={[-22.915777, -47.065287]} zoom={13} scrollWheelZoom={false}>
             <TileLayer
                 attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
-
-            <Marker position={position}>
-                <Popup>
-
-                </Popup>
-            </Marker>
+            {
+                postos.map(posto => {
+                    position = [posto.lat, posto.long]
+                    return (
+                        <Marker key={posto.id} position={position}>
+                            <Popup>
+                                <p>{posto.nome}</p>
+                                <p>Aberto 24hrs? {posto.atendimento24}</p>
+                                <img src={posto.imagem} alt="imagem do posto"></img>
+                                
+                            </Popup>
+                        </Marker>
+                    )
+                })
+            }
 
         </MapContainer>
 

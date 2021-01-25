@@ -6,7 +6,6 @@ export const UserContext = React.createContext();
 const UserProvider = ( props ) => {
     const [user, setUser] = useState({});
 
-    
     useEffect(() => {
         setUser({});
     }, [])

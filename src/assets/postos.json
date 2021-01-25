@@ -1,0 +1,123 @@
+[
+    {
+      "CEP": "13041-009",
+      "atendimento24": false,
+      "bairro": "Jardim Leonor",
+      "cidade": "Campinas - SP",
+      "lat" : -22.915777,
+      "long" : -47.065287,
+      "endereco": "R. Fernão Pompeu de Camargo, 800",
+      "imagem": "https://geo1.ggpht.com/cbk?panoid=sTlGRpi63VKu-6vBR2fF4w&output=thumbnail&cb_client=search.gws-prod.gps&thumb=2&yaw=270.70032&pitch=0&thumbfov=100&w=262&h=104",
+      "nome": "CPFL"
+    },
+    {
+      "CEP": "13026-510",
+      "atendimento24": true,
+      "bairro": "Bosque",
+      "cidade": "Campinas - SP",      
+      "lat" : -22.902865,
+      "long" : -47.055127,      
+      "endereco": "Av. Aquidabã, 440",
+      "imagem": "https://lh5.googleusercontent.com/p/AF1QipNfn7aCiY_gnlO5FmMqr2Bo3WKFH-Sf2KoT4nyD=w408-h545-k-no",
+      "nome": "CPFL"
+    },
+    {
+      "CEP": "13025-066",
+      "atendimento24": false,
+      "bairro": "Conceicao",
+      "cidade": "Campinas - SP",      
+      "lat" : -22.88887,
+      "long" : -47.052279,      
+      "endereco": "R. General Osório",
+      "imagem": "https://geo0.ggpht.com/cbk?panoid=rJnGE1X-Tsm0ow0yq4WcNw&output=thumbnail&cb_client=search.gws-prod.gps&thumb=2&yaw=136.35768&pitch=0&thumbfov=100&w=262&h=104",
+      "nome": "CPFL"
+    },
+    {
+      "CEP": "13060-813",
+      "atendimento24": true,
+      "bairro": "Jardim Ipaussurama",
+      "cidade": "Campinas - SP",      
+      "lat" : -22.915478,
+      "long" : -47.125865,      
+      "endereco": "Av. John Boyd Dunlop, 3900",
+      "imagem": "https://maps.gstatic.com/tactile/pane/default_geocode-1x.png",
+      "nome": "CPFL"
+    },
+    {
+      "CEP": "13083-590",
+      "atendimento24": false,
+      "bairro": "Cidade Universitária",
+      "cidade": "Campinas - SP",      
+      "lat" : -22.81096,
+      "long" : -47.070934,      
+      "endereco": "R. Roxo Moreira, 1488",
+      "imagem": "https://geo2.ggpht.com/cbk?panoid=IdS2B7_QkBhd4lAWgpKoMw&output=thumbnail&cb_client=search.gws-prod.gps&thumb=2&w=408&h=240&yaw=51.934853&pitch=0&thumbfov=100",
+      "nome": "CPFL"
+    },
+    {
+      "CEP": "13087-490",
+      "atendimento24": true,
+      "bairro": "Jardim Profa. Tarcília",
+      "cidade": "Campinas - SP",      
+      "lat" : -22.843113,
+      "long" : -47.041409,      
+      "endereco": "Rod. Eng. Miguel Noel Nascentes Burnier",
+      "imagem": "https://geo3.ggpht.com/cbk?panoid=QmXuKETZWaLoYKuU6J3VIA&output=thumbnail&cb_client=search.gws-prod.gps&thumb=2&w=408&h=240&yaw=257.0653&pitch=0&thumbfov=100",
+      "nome": "CPFL"
+    },
+    {
+      "CEP": "13092-902",
+      "atendimento24": false,
+      "bairro": "Vila Brandina",
+      "cidade": "Campinas - SP",      
+      "lat" : -22.891594,
+      "long" : -47.0282,      
+      "endereco": "Av. Iguatemi, 777",
+      "imagem": "https://geo1.ggpht.com/cbk?panoid=ronBehwRHQty_W6ifO0vNg&output=thumbnail&cb_client=search.gws-prod.gps&thumb=2&yaw=88.73476&pitch=0&thumbfov=100&w=300&h=104",
+      "nome": "CPFL"
+    },
+    {
+      "CEP": "04511-011",
+      "atendimento24": true,
+      "bairro": "Vila Nova Conceição",
+      "cidade": "São Paulo - SP",      
+      "lat" : -23.580968,
+      "long" : -46.669378,      
+      "endereco": "R. Afonso Braz, 445",
+      "imagem": "https://geo0.ggpht.com/cbk?panoid=FHOH5nTyK4DHfEYxYuJejw&output=thumbnail&cb_client=search.gws-prod.gps&thumb=2&w=408&h=240&yaw=181.4186&pitch=0&thumbfov=100",
+      "nome": "Desconhecido"
+    },
+    {
+      "CEP": "05015-040",
+      "atendimento24": true,
+      "bairro": "Perdizes",
+      "cidade": "São Paulo - SP",      
+      "lat" : -23.534656,
+      "long" : -46.675347,      
+      "endereco": "R. Dr. Franco da Rocha, 664",
+      "imagem": "https://lh5.googleusercontent.com/p/AF1QipP6NAclypzhwufucCRMQCEQfOeal0ldssfhmcJC=w262-h104-p-k-no",
+      "nome": "IPIRANGA"
+    },
+    {
+      "CEP": "05724-002",
+      "atendimento24": false,
+      "bairro": "Vila Andrade",
+      "cidade": "São Paulo - SP",      
+      "lat" : -23.62475,
+      "long" : -46.734228,      
+      "endereco": "Av. Giovanni Gronchi, 6000",
+      "imagem": "https://lh5.googleusercontent.com/p/AF1QipO0sYjV9lPnxgViLEu3sco2eKmK_UB6EZNXSPHQ=w262-h104-p-k-no",
+      "nome": "INCHARGE"
+    },
+    {
+      "CEP": "05437-002",
+      "atendimento24": true,
+      "bairro": "Sumarezinho",
+      "cidade": "São Paulo - SP",      
+      "lat" : -23.539668,
+      "long" : -46.697086,      
+      "endereco": "R. Heitor Penteado, 2047",
+      "imagem": "https://lh5.googleusercontent.com/p/AF1QipPeGvobhHSMVFs6GbQAzFCF5and2vwZxZOmsQDI=w262-h104-p-k-no",
+      "nome": "IPIRANGA"
+    }
+  ]
