@@ -1,20 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components'
 import Card from '../Card/Card'
+import { UserContext } from '../../context/userProvider'
 
 function Perfil() {
 
-    const user = {
-        "name": "Paulo Belucci",
-        "email": "testeemailvalido@email.com",
-        "password": "testeSenhaValida123",
-        "urlImage": "https://avatars.githubusercontent.com/u/41579551?s=460&u=ef8dae43d90d542f814c5af9a5a1ba1f459f9bad&v=4"
-    }
+    const { user } = useContext(UserContext);
+    console.log(user);
+
+    if (!user) return (
+        <h3>Faça um cadastro para usufruir dos benefícios ;)</h3>
+    );
 
     const handlePerfil = () => {
         return (
             <PerfilDados>
-                <PerfilImg src={user.urlImage} alt="foto user"></PerfilImg>
+                <PerfilImg src={user.url_image} alt="foto user"></PerfilImg>
                 <PerfilInfos>
                     <label>Nome
                         <h5>{user.name}</h5>

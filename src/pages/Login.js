@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components'
 import logo from '../assets/offline_bolt-24px.svg'
 import { Link } from 'react-router-dom'
-import api from '../api/api';
+import { UserContext } from '../context/userProvider'
 
 function Login() {
 
@@ -69,26 +69,11 @@ function Login() {
         }
     `;
 
-    const loginSubmitHandler = (event) => {
-        event.preventDefault();
-
-        const login = {
-            "email" : event.target.email.value,
-            "password" :  event.target.password.value,
-        };
-        
-        api.post('users/login', login)
-        .then( (response) => {
-            console.log(response);
-        })
-        .catch( (err) => {
-            console.log("Erro", err);
-        })
-    };
+    const {loginSubmitHandler} = useContext(UserContext);
 
     const handleFormulario = () => {
         return (
-            <Form onSubmit={loginSubmitHandler}>
+            <Form onSubmit={(e) => loginSubmitHandler(e)}>
                 <LogoAndTitle>
                     <svg />
                     <h5>Clean Energy</h5>

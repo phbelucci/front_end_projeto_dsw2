@@ -8,9 +8,10 @@ import favorite from '../../assets/favorite.svg'
 import Favorito from '../favoritos/Favorito'
 import Maps from '../Map/Maps'
 import Perfil from '../perfil/Perfil'
+
+
 export const Main = ({ props }) => {
 
-    
     const [showContent, setShowContent] = useState(0) 
 
     const options = [
