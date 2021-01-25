@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import styled from 'styled-components'
 import logo from '../assets/offline_bolt-24px.svg'
 import { Link } from 'react-router-dom'
-import { UserContext } from '../context/userProvider'
+import api from '../api/api'
 
 function Login() {
 
@@ -69,7 +69,20 @@ function Login() {
         }
     `;
 
-    const {loginSubmitHandler} = useContext(UserContext);
+    const loginSubmitHandler = async (event) =>{
+        event.preventDefault();
+
+        console.log("Entrou");
+        const login = {
+            "email" : event.target.email.value,
+            "password" :  event.target.password.value,
+        };
+        
+        console.log("Login: ", login);
+        let response = await api.post('users/login', login).then(response => { 
+            console.log(response.data);
+        })
+    }
 
     const handleFormulario = () => {
         return (
