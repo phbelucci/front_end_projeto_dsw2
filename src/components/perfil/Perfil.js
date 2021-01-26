@@ -1,16 +1,14 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import styled from 'styled-components'
 import Card from '../Card/Card'
-import { UserContext } from '../../context/userProvider'
 
 function Perfil() {
 
-    const { user } = useContext(UserContext);
-    console.log(user);
-
-    if (!user) return (
-        <h3>Faça um cadastro para usufruir dos benefícios ;)</h3>
-    );
+    const user = {
+        name: "usuario2",
+        email: "usuario2@email.com",
+        url_image: "https://i.ytimg.com/vi/PAI2dQ_hQhg/hqdefault.jpg",
+    }
 
     const handlePerfil = () => {
         return (
