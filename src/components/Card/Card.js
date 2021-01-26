@@ -26,9 +26,8 @@ function Card({posto}) {
       height: 100%;
 
       img {
-        width: 180px;
-        height: 100px;
-
+        width: 100%;
+        height: 100%;
       }
   `;
 
@@ -37,16 +36,19 @@ function Card({posto}) {
     width: 65%;
     height: 100%;
   `;
+  
+  let atendimento24 = "Não"
+  if (posto.atendimento24) atendimento24 = "Sim";
 
   return (
-    <Card key={posto.id}>
+    <Card key={posto.idposto}>
       <Imagem>
         <img src={posto.imagem} alt="icon"></img>
       </Imagem>
       <Content>
         <h6>{posto.nome}</h6>
-        <h6>{posto.endereco}</h6>
-        <h6>Aberto 24hrs? {posto.is24hrs}</h6>
+        <h6>{posto.bairro}</h6>
+        <h6>Aberto 24hrs? {atendimento24}</h6>
         <h6>Avaliação: {posto.meanstars}</h6>
       </Content>
     </Card>
