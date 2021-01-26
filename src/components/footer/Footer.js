@@ -1,33 +1,21 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Card from '../Card/Card';
+import api from '../../api/api'
 export const Footer = ({ props }) => {
 
 
+    const [postosDestaque, setPostosDestaque] = useState([]);
     
+    useEffect(() => {
+        // Postos destaque
+        api.get('chargeStation/highlights').then((response) => {
+            setPostosDestaque(response.data)
+        }).catch((err) => {
+            console.error("Erro" + err);
+        });
+    }, [])
 
-    const postosDestaque = [{
-        id: 1,
-        urlImage : 'https://sucessosa.com.br/uploads/imagens/abre-materia-posto-6.jpg',
-        nome : 'Posto Tal',
-        endereco: 'Rua Tal, n 1000',
-        is24hrs: 'Sim',
-        stars: 3,
-    },{
-        id: 2,
-        urlImage : 'https://sucessosa.com.br/uploads/imagens/abre-materia-posto-6.jpg',
-        nome : 'Posto Tal',
-        endereco: 'Rua Tal, n 1000',
-        is24hrs: 'Sim',
-        stars: 3,
-    },{
-        id: 3,
-        urlImage : 'https://sucessosa.com.br/uploads/imagens/abre-materia-posto-6.jpg',
-        nome : 'Posto Tal',
-        endereco: 'Rua Tal, n 1000',
-        is24hrs: 'Sim',
-        stars: 3,
-    }]
 
     const Footer = styled.footer`
         
@@ -42,16 +30,14 @@ export const Footer = ({ props }) => {
         border-radius: 5px;
     `;
 
-    
-   
-
     const listaCards = () => {
-
-        return postosDestaque.map( posto => {
-            return (
-                <Card key={posto.id} posto={posto}></Card>
-            )
-        })
+        if(postosDestaque != null){
+            return postosDestaque.map(posto => {
+                return (
+                    <Card key={posto.id} posto={posto}></Card>
+                )
+            })
+        }         
     }
 
     return <Footer>

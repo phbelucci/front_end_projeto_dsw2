@@ -59,7 +59,6 @@ function Cadastro() {
             margin-top: 10%;
             width: 50%;
             
-
             button {
               width: 100%;
               color: #FFF;
@@ -107,7 +106,7 @@ function Cadastro() {
                 <Link to={"/login"}></Link>
                 <input type="submit" value="Cadastrar" style={{ marginBottom: '30px' }}/>
                 <Link to={"/login"}>
-                    <button>Já sou cadastrado...</button>
+                    <button >Já sou cadastrado...</button>
                 </Link>
             </Form>
         )

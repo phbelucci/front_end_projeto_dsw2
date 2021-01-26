@@ -26,8 +26,9 @@ function Card({posto}) {
       height: 100%;
 
       img {
-        width: 100%;
-        height: 100%;
+        width: 180px;
+        height: 100px;
+
       }
   `;
 
@@ -40,13 +41,13 @@ function Card({posto}) {
   return (
     <Card key={posto.id}>
       <Imagem>
-        <img src={posto.urlImage} alt="icon"></img>
+        <img src={posto.imagem} alt="icon"></img>
       </Imagem>
       <Content>
         <h6>{posto.nome}</h6>
         <h6>{posto.endereco}</h6>
         <h6>Aberto 24hrs? {posto.is24hrs}</h6>
-        <h6>Avaliação: {posto.stars}</h6>
+        <h6>Avaliação: {posto.meanstars}</h6>
       </Content>
     </Card>
   )
