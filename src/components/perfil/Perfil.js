@@ -30,7 +30,7 @@ function Perfil() {
                 :
                 <PerfilDados>
                     <div>User não esta logado</div>
-                    <Link to="/login">Login</Link>
+                    <Link to="/">Login</Link>
                 </PerfilDados>
         )
     }

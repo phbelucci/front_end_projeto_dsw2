@@ -104,7 +104,7 @@ function Login() {
         setUserLogado(JSON.parse(localStorage.getItem("user")))
         
         if (userLogado != null) {
-            history.push('/home')
+            history.push('/')
         } else {
             window.alert("Erro ao logar! Tente novamente!")
         }

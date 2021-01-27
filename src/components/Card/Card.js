@@ -14,6 +14,7 @@ function Card({posto}) {
       filter: drop-shadow(2px 2px 5px #23DDA9);
       border-radius: 5px;
       width: 30%;
+      height: 130px;
         
   `;
 

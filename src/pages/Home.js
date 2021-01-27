@@ -7,12 +7,10 @@ import { Footer } from '../components/footer/Footer'
 
 function Home() {
 
-  const [userLogado, setUserLogado] = useState({})
   useEffect(() => {
-    setUserLogado(JSON.parse(localStorage.getItem("user")))
+    localStorage.clear()
   }, [])
 
-  console.log('userlogado home...', userLogado)
   const Container = styled.div`
         display: flex;
         flex-direction: column;
@@ -25,7 +23,7 @@ function Home() {
   return (
       <Container>
         <NavBar></NavBar>
-        <Main userLogado={userLogado}></Main>
+        <Main></Main>
         <Footer></Footer>
       </Container>
     )

@@ -10,7 +10,7 @@ import Maps from '../Map/Maps'
 import Perfil from '../perfil/Perfil'
 
 
-export const Main = ({ userLogado }) => {
+export const Main = () => {
 
     const [showContent, setShowContent] = useState(0) 
 
@@ -18,7 +18,7 @@ export const Main = ({ userLogado }) => {
         {
             nome: "Home",
             icon: home,
-            link: "/home"
+            link: "/"
         }, {
             nome: "Perfil",
             icon: profile,
@@ -123,9 +123,9 @@ export const Main = ({ userLogado }) => {
     const handleContent = () => {
         var url_atual = window.location.href;
         const BASE_URL = 'http://localhost:3000/';
-        if(url_atual === `${BASE_URL}home`) return <Maps></Maps>
-        if(url_atual === `${BASE_URL}perfil`) return userLogado ? <Perfil userLogado={userLogado}></Perfil> : <Perfil></Perfil>
-        if(url_atual === `${BASE_URL}favoritos`) return userLogado ? <Favorito userLogado={userLogado}></Favorito> : <Favorito></Favorito>
+        if(url_atual === `${BASE_URL}`) return <Maps></Maps>
+        if(url_atual === `${BASE_URL}perfil`) return <Perfil></Perfil>
+        if(url_atual === `${BASE_URL}favoritos`) return <Favorito></Favorito>
     }
 
     return (
