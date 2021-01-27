@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import logo from '../assets/offline_bolt-24px.svg';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import api from '../api/api';
 
 
@@ -69,6 +69,9 @@ function Cadastro() {
         }
     `;
 
+
+    const history = useHistory()
+
     const handleSubmit = (event) => {
         event.preventDefault();
 
@@ -82,6 +85,8 @@ function Cadastro() {
         api.post('users/', newUser)
         .then( (response) => {
             console.log(response);
+            window.alert("Cadastro realizado com sucesso!")
+            history.push('/login');
         })
         .catch( (err) => {
             console.log("Erro", err);
