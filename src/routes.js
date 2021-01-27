@@ -15,9 +15,9 @@ export default function RoutesMain() {
     return (
         <Router>
             <Switch>
-                <Route path="/" exact><Cadastro /></Route>
+                <Route path="/" exact><Home /></Route>
+                <Route path="/cadastro" exact><Cadastro /></Route>
                 <Route path="/login"><Login /></Route>
-                <Route path="/home"><Home /></Route>
                 <Route path="/perfil"><Perfil /></Route>
                 <Route path="/favoritos" ><Favoritos /></Route>
             </Switch>
