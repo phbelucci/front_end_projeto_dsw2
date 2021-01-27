@@ -2,15 +2,15 @@ import React, {useState} from 'react'
 import { Link } from 'react-router-dom'
 
 import styled from 'styled-components'
-import home from '../../assets/home.svg'
-import profile from '../../assets/profile.svg'
-import favorite from '../../assets/favorite.svg'
+import home from '../../assets/home.png'
+import profile from '../../assets/profile.png'
+import favorite from '../../assets/favorite.png'
 import Favorito from '../favoritos/Favorito'
 import Maps from '../Map/Maps'
 import Perfil from '../perfil/Perfil'
 
 
-export const Main = ({ props }) => {
+export const Main = ({ userLogado }) => {
 
     const [showContent, setShowContent] = useState(0) 
 
@@ -108,8 +108,6 @@ export const Main = ({ props }) => {
     const listOptions = (options) => {
 
         return options.map(item => {
-            console.log(item.nome)
-            console.log(item.icon)
             return (
                 <Option key={item.nome} >
                     <Link to={item.link}>
@@ -125,11 +123,9 @@ export const Main = ({ props }) => {
     const handleContent = () => {
         var url_atual = window.location.href;
         const BASE_URL = 'http://localhost:3000/';
-
-        console.log(url_atual)
         if(url_atual === `${BASE_URL}home`) return <Maps></Maps>
-        if(url_atual === `${BASE_URL}perfil`) return <Perfil></Perfil>
-        if(url_atual === `${BASE_URL}favoritos`) return <Favorito></Favorito>
+        if(url_atual === `${BASE_URL}perfil`) return userLogado ? <Perfil userLogado={userLogado}></Perfil> : <Perfil></Perfil>
+        if(url_atual === `${BASE_URL}favoritos`) return userLogado ? <Favorito userLogado={userLogado}></Favorito> : <Favorito></Favorito>
     }
 
     return (

@@ -20,30 +20,6 @@ export const Footer = ({ props }) => {
 
     }, []);
 
-    /*
-    const postosDestaque = [{
-        id: 1,
-        urlImage : 'https://sucessosa.com.br/uploads/imagens/abre-materia-posto-6.jpg',
-        nome : 'Posto Tal',
-        endereco: 'Rua Tal, n 1000',
-        is24hrs: 'Sim',
-        stars: 3,
-    },{
-        id: 2,
-        urlImage : 'https://sucessosa.com.br/uploads/imagens/abre-materia-posto-6.jpg',
-        nome : 'Posto Tal',
-        endereco: 'Rua Tal, n 1000',
-        is24hrs: 'Sim',
-        stars: 3,
-    },{
-        id: 3,
-        urlImage : 'https://sucessosa.com.br/uploads/imagens/abre-materia-posto-6.jpg',
-        nome : 'Posto Tal',
-        endereco: 'Rua Tal, n 1000',
-        is24hrs: 'Sim',
-        stars: 3,
-    }]
-    */
 
     const Footer = styled.footer`
         
@@ -59,9 +35,7 @@ export const Footer = ({ props }) => {
     `;
 
     const listaCards = () => {
-        console.log(postosDestaque);
         return postosDestaque.map( posto => {
-            console.log("POSTO: ", posto);
             return (
                 <Card key={posto.idposto} posto={posto}></Card>
             )

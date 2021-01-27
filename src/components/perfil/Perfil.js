@@ -1,29 +1,37 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components'
-import Card from '../Card/Card'
+import { Link } from 'react-router-dom'
 
 function Perfil() {
 
-    const user = {
-        name: "usuario2",
-        email: "usuario2@email.com",
-        url_image: "https://i.ytimg.com/vi/PAI2dQ_hQhg/hqdefault.jpg",
-    }
+    const [user, setUser] = useState([])
+    useEffect(() => {
+        setUser(JSON.parse(localStorage.getItem("user")))
+        console.log('user perfil...', user)
+    }, [])
 
     const handlePerfil = () => {
+
         return (
-            <PerfilDados>
-                <PerfilImg src={user.url_image} alt="foto user"></PerfilImg>
-                <PerfilInfos>
-                    <label>Nome
+            user ?
+                <PerfilDados>
+                    <PerfilImg src={user.url_image} alt="foto user"></PerfilImg>
+                    <PerfilInfos>
+                        <label>Nome
                         <h5>{user.name}</h5>
-                    </label>
-                    <label>Email
+                        </label>
+                        <label>Email
                         <h5>{user.email}</h5>
-                    </label>
-                </PerfilInfos>
-                <PerfilButton>SALVAR</PerfilButton>
-            </PerfilDados> 
+                        </label>
+                    </PerfilInfos>
+                    <PerfilButton>EDITAR</PerfilButton>
+                    <PerfilButton>SALVAR</PerfilButton>
+                </PerfilDados>
+                :
+                <PerfilDados>
+                    <div>User não esta logado</div>
+                    <Link to="/login">Login</Link>
+                </PerfilDados>
         )
     }
 
@@ -31,10 +39,10 @@ function Perfil() {
     //     return (
     //         // <>
     //         // <Title>
-                
+
     //         // </Title>
     //         // <Favoritos>
-                
+
     //         // </Favoritos>
     //         // </>
     //     )
@@ -88,7 +96,7 @@ function Perfil() {
         color: #10CA85;
     `;
 
-    
+
     const PerfilInfos = styled.div`
         display: flex;
         flex-direction: column;

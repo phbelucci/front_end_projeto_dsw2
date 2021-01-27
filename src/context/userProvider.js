@@ -13,16 +13,13 @@ const UserProvider = ( props ) => {
     const loginSubmitHandler = (event) => {
       event.preventDefault();
 
-      console.log("Entrou");
       const login = {
           "email" : event.target.email.value,
           "password" :  event.target.password.value,
       };
       
-      console.log("Login: ", login);
       api.post('users/login', login)
       .then( (response) => {
-          console.log(response.data);
           setUser(response.data);
       })
       .catch( (err) => {

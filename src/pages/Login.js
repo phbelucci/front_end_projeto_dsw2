@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components'
 import logo from '../assets/offline_bolt-24px.svg'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import api from '../api/api'
 
 function Login() {
+
+    const history = useHistory()
+    const [userLogado, setUserLogado] = useState({})
+
+    useEffect(() => {
+        localStorage.clear()
+    }, [])
 
     const ContainerCadastro = styled.div`
         width: 20%;
@@ -66,22 +73,41 @@ function Login() {
               filter: drop-shadow(2px 2px 5px #0B3740);
               border-radius: 5px;
             }
+
+            input {
+              width: 100%;
+              color: #FFF;
+              background: linear-gradient(305.85deg, #10CA85 44.36%, rgba(102, 126, 234, 0) 401.19%);
+              filter: drop-shadow(2px 2px 5px #0B3740);
+              border-radius: 5px;
+            }
         }
     `;
 
-    const loginSubmitHandler = async (event) =>{
+    const loginSubmitHandler = async (event) => {
         event.preventDefault();
 
-        console.log("Entrou");
         const login = {
-            "email" : event.target.email.value,
-            "password" :  event.target.password.value,
+            "email": event.target.email.value,
+            "password": event.target.password.value,
         };
-        
-        console.log("Login: ", login);
-        let response = await api.post('users/login', login).then(response => { 
-            console.log(response.data);
+        console.log(login)
+        let response  = await api.post('users/login', login).then(response => {
+            console.log(response.data)
+            return response.data;
+            
+        }).catch(err => {
+            console.log(err)
         })
+
+        localStorage.setItem("user", JSON.stringify(response))
+        setUserLogado(JSON.parse(localStorage.getItem("user")))
+        
+        if (userLogado != null) {
+            history.push('/home')
+        } else {
+            window.alert("Erro ao logar! Tente novamente!")
+        }
     }
 
     const handleFormulario = () => {
@@ -92,11 +118,10 @@ function Login() {
                     <h5>Clean Energy</h5>
                 </LogoAndTitle>
                 <label>Email</label>
-                <input type='email' id='email'/>
+                <input type='email' id='email' />
                 <label>Senha</label>
-                <input type='password' id='password'/>
-                <Link to="/home"></Link>
-                <input type='submit' value="Login"/>
+                <input type='password' id='password' />
+                <input type='submit' value="Login" />
                 <Link to="/"><button>Não sou cadastrado...</button></Link>
             </Form>
         )

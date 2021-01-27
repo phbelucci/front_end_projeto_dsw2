@@ -14,7 +14,6 @@ function Maps() {
         // Lista depostos
         api.get('chargeStation').then((response) => {
             setPostos(response.data)
-            console.log("Postos: ", response.data);
         }).catch((err) => {
             console.error("Erro" + err);
         });
@@ -34,9 +33,10 @@ function Maps() {
                     return (
                         <Marker key={posto.id} position={position}>
                             <Popup>
-                                <p>{posto.nome}</p>
-                                <p>Aberto 24hrs? {posto.atendimento24}</p>
-                                <img src={posto.imagem} alt="imagem do posto"></img>
+                                <h5>{posto.nome}</h5>
+                                <h5>Avaliação: {posto.meanstars}</h5>
+                                <h5>Aberto 24hrs? {posto.atendimento24 ? "Sim" : "Não"}</h5>
+                                <img src={posto.imagem} alt="imagem do posto" style={{width: "200px", height: "100px"}}></img>
                                 
                             </Popup>
                         </Marker>

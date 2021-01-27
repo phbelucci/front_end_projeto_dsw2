@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import logo from '../../assets/offline_bolt-24px.svg'
-import iSearch from '../../assets/search-24px.svg'
+import logo from '../../assets/offline_bolt-24px.png'
+import iSearch from '../../assets/search-24px.png'
 export const NavBar = ({ props }) => {
 
     const title = "CLEAN ENERGY"
 
     const onSearch = () => {
+
         console.log('search')
     }
 
@@ -36,11 +37,16 @@ export const NavBar = ({ props }) => {
         height: 100%;
         color: #FFF;
 
+        h5 {
+            width: 70%
+        }
+
         svg  {
             width: 30%;
-            height: 30%;
+            height: 50%;
             background-image: url(${logo});
             background-repeat: no-repeat;
+            margin-left: 5%;
         }
     `;
 
@@ -51,10 +57,8 @@ export const NavBar = ({ props }) => {
         justify-content: center;
 
         svg {
-            width: 10%;
-            height: 30%;
-            color: #FFF;
-            fill: #FFF;
+            width: 5%;
+            height: 50%;
             background-image: url(${iSearch});
             background-repeat: no-repeat;
         }
