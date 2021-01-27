@@ -8,16 +8,15 @@ function Maps() {
 
     const [postos, setPostos] = useState([]);
     const [popup, setPopup] = useState(true);
-    const [userId, setUserId] = useState("")
+    const [user, setUser] = useState([])
 
     let position = []
 
     useEffect(() => {
-        // if(JSON.parse(localStorage.getItem("user")) != null){
-        //     setUserId(JSON.parse(localStorage.getItem("user").id))
-        // }
-        
-        // Lista depostos
+        // User logado
+        setUser(JSON.parse(localStorage.getItem("user")))
+
+        // Lista de postos
         api.get('chargeStation').then((response) => {
             setPostos(response.data)
         }).catch((err) => {
@@ -27,8 +26,16 @@ function Maps() {
     }, []);
 
     const handleCurtida = async (postoId) => {
-        await api.put(`/users/favorites/${userId}/${postoId}`).then(response => {
+        console.log(`/users/favorites/${user.id}/${postoId}`);
+        await api.put(
+            `users/favorites/${user.id}/${postoId}`,
+            {},
+            {headers: { Authorization: `Bearer ${user.token}` }})
+        .then(response => {
             return response.data;
+        })
+        .catch((err) => {
+            console.log("ERRO:", err);
         })
     }
 
@@ -51,13 +58,13 @@ function Maps() {
                 postos.map(posto => {
                     position = [posto.lat, posto.long]
                     return (
-                        <Marker key={posto.id} position={position}>
+                        <Marker key={posto.idposto} position={position}>
                             <Popup>
                                 <div>
                                     <h5>{posto.nome}</h5>
                                     <h5>Avaliação: {posto.meanstars}</h5>
                                     <h5>Aberto 24hrs? {posto.atendimento24 ? "Sim" : "Não"}</h5>
-                                    <Button onClick={handleCurtida(posto.id)}>Curtir</Button>
+                                    <Button onClick={() => handleCurtida(posto.idposto)}>Curtir</Button>
                                     
                                 </div>
                                 <br/>
