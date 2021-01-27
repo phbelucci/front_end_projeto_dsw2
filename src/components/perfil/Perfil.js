@@ -98,7 +98,7 @@ function Perfil() {
                 :
                 <PerfilDados>
                     <div>User não esta logado</div>
-                    <Link to="/">Login</Link>
+                    <Link to="/login">Login</Link>
                 </PerfilDados>
         )
     }

@@ -35,11 +35,11 @@ export const Footer = ({ props }) => {
     `;
 
     const listaCards = () => {
-        return postosDestaque.map( posto => {
+        return postosDestaque ? postosDestaque.map( posto => {
             return (
                 <Card key={posto.idposto} posto={posto}></Card>
             )
-        })
+        }) : <div>Não há postos em destaque nesse momento!</div>
     }
 
     return <Footer>

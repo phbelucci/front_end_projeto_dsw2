@@ -46,7 +46,8 @@ function Maps() {
                 attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
-            {
+            {   
+                postos ? 
                 postos.map(posto => {
                     position = [posto.lat, posto.long]
                     return (
@@ -64,7 +65,8 @@ function Maps() {
                             </Popup>
                         </Marker>
                     )
-                })
+                }) : <div></div>
+
             }
 
         </MapContainer>

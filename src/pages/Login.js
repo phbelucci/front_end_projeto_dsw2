@@ -3,11 +3,15 @@ import styled from 'styled-components'
 import logo from '../assets/offline_bolt-24px.svg'
 import { Link, useHistory } from 'react-router-dom'
 import api from '../api/api'
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
 
 function Login() {
 
     const history = useHistory()
     const [userLogado, setUserLogado] = useState({})
+
+
 
     useEffect(() => {
         localStorage.clear()
@@ -84,6 +88,10 @@ function Login() {
         }
     `;
 
+    const handleToast = (err) => {
+        toast.error(err)
+    }
+
     const loginSubmitHandler = async (event) => {
         event.preventDefault();
 
@@ -92,22 +100,14 @@ function Login() {
             "password": event.target.password.value,
         };
         console.log(login)
-        let response  = await api.post('users/login', login).then(response => {
-            console.log(response.data)
-            return response.data;
-            
+        await api.post('users/login', login).then(res => {
+            localStorage.setItem("user", JSON.stringify(res.data))
+            setUserLogado(JSON.parse(localStorage.getItem("user")))
+            history.push('/')
         }).catch(err => {
-            console.log(err)
+            handleToast("Usuário não encontrado!")
         })
 
-        localStorage.setItem("user", JSON.stringify(response))
-        setUserLogado(JSON.parse(localStorage.getItem("user")))
-        
-        if (userLogado != null) {
-            history.push('/')
-        } else {
-            window.alert("Erro ao logar! Tente novamente!")
-        }
     }
 
     const handleFormulario = () => {
@@ -122,12 +122,13 @@ function Login() {
                 <label>Senha</label>
                 <input type='password' id='password' />
                 <input type='submit' value="Login" />
-                <Link to="/"><button>Não sou cadastrado...</button></Link>
+                <Link to="/cadastro"><button>Não sou cadastrado...</button></Link>
             </Form>
         )
     }
 
     return <ContainerCadastro>
+        <ToastContainer></ToastContainer>
         {handleFormulario()}
     </ContainerCadastro>;
 }

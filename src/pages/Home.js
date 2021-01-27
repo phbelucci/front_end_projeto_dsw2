@@ -7,10 +7,6 @@ import { Footer } from '../components/footer/Footer'
 
 function Home() {
 
-  useEffect(() => {
-    localStorage.clear()
-  }, [])
-
   const Container = styled.div`
         display: flex;
         flex-direction: column;
