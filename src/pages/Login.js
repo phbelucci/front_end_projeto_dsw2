@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components'
-import logo from '../assets/offline_bolt-24px.svg'
+import logo from '../assets/offline_bolt-24px.png'
 import { Link, useHistory } from 'react-router-dom'
 import api from '../api/api'
 import { toast, ToastContainer } from 'react-toastify';
@@ -32,16 +32,19 @@ function Login() {
         justify-content: center;
         height: 30px;
         color: #FFF;
+        margin-bottom: 50px;
         svg  {
-            width: 30%;
-            height: 100%;
+            width: 48px;
+            height: 48px;
             background-image: url(${logo});
             background-repeat: no-repeat;
         }
 
         h5 {
-            width: 60%;
+            width: 70%;
             height: 100%;
+            margin-left: 10px;
+            
         }
     `;
 
@@ -68,6 +71,7 @@ function Login() {
             justify-content: center;
             margin-top: 10%;
             width: 50%;
+            margin-left: 24px;
             
 
             button {
@@ -79,11 +83,12 @@ function Login() {
             }
 
             input {
-              width: 100%;
-              color: #FFF;
-              background: linear-gradient(305.85deg, #10CA85 44.36%, rgba(102, 126, 234, 0) 401.19%);
-              filter: drop-shadow(2px 2px 5px #0B3740);
-              border-radius: 5px;
+                margin-top: 24px;
+                width: 100%;
+                color: #FFF;
+                background: linear-gradient(305.85deg, #10CA85 44.36%, rgba(102, 126, 234, 0) 401.19%);
+                filter: drop-shadow(2px 2px 5px #0B3740);
+                border-radius: 5px;
             }
         }
     `;
@@ -101,7 +106,10 @@ function Login() {
         };
         console.log(login)
         await api.post('users/login', login).then(res => {
+
             localStorage.setItem("user", JSON.stringify(res.data))
+            if(res.data.favorites === null) localStorage.setItem("user.favorites", "")
+
             setUserLogado(JSON.parse(localStorage.getItem("user")))
             history.push('/')
         }).catch(err => {

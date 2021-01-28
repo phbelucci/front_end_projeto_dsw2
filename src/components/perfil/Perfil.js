@@ -126,7 +126,6 @@ function Perfil() {
         padding-bottom: 2%;
         height: 55vh;
         width: 100%;
-        border: 2px solid black;
     `;
 
     const ContainerPerfilDados = styled.div`
@@ -194,7 +193,6 @@ function Perfil() {
         width: 47%;
         margin-left: 2%;
         align-self: flex-start;
-        border: 2px solid black;
 
         font-family: Strong;
         font-style: normal;

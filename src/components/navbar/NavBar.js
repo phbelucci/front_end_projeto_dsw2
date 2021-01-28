@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import logo from '../../assets/offline_bolt-24px.png'
 import iSearch from '../../assets/search-24px.png'
+import {Link} from 'react-router-dom'
 export const NavBar = ({ props }) => {
 
     const title = "CLEAN ENERGY"
@@ -25,8 +26,6 @@ export const NavBar = ({ props }) => {
         background: linear-gradient(305.85deg, rgba(11, 55, 64, 0.76) 44.36%, rgba(102, 126, 234, 0) 401.19%);
         filter: drop-shadow(2px 2px 5px #23DDA9);
         border-radius: 5px;
-
-
     `;
 
     const LogoAndTitle = styled.span`
@@ -69,6 +68,10 @@ export const NavBar = ({ props }) => {
             border-radius: 5px;
 
         }
+        a {
+            margin-left: 5%;
+            color: #FFF;
+        }
     `;
 
 
@@ -81,6 +84,7 @@ export const NavBar = ({ props }) => {
             <Search>
                 <svg></svg>
                 <input placeholder="Pesquisar..." onChange={(e) => handleSearch(e)}></input>
+                <Link to='/login'>SAIR</Link>
             </Search>
         </Container>
     )
