@@ -97,7 +97,7 @@ function Perfil() {
                 </PerfilDados>
                 :
                 <PerfilDados>
-                    <div>User não esta logado</div>
+                    <h5>User não esta logado</h5>
                     <Link to="/login">Login</Link>
                 </PerfilDados>
         )
@@ -135,6 +135,7 @@ function Perfil() {
 
     `;
 
+
     const PerfilDados = styled.div`
         display: flex;
         justify-content: space-between;
@@ -145,6 +146,30 @@ function Perfil() {
         box-sizing: border-box;
         box-shadow: -5px 5px 4px rgba(0, 0, 0, 0.2);
         border-radius: 5px;
+
+        h5 {
+            margin-left: 100px;
+            color: #10CA85;
+            align-self: center;
+        }
+        a{
+            margin: 0% 20% 1% 0%;
+            width: 105px;
+            height: 37px;
+            background: #FFFFFF;
+            border: 1px solid #10CA85;
+            box-sizing: border-box;
+            border-radius: 5px;
+            font-family: Strong;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 24px;
+            line-height: 29px;
+            color: #10CA85;
+            align-self: center;
+            text-align: center;
+            
+        }
     `;
 
     const Form = styled.form`

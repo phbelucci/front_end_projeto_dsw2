@@ -136,8 +136,8 @@ function Login() {
     }
 
     return <ContainerCadastro>
-        <ToastContainer></ToastContainer>
         {handleFormulario()}
+        <ToastContainer></ToastContainer>
     </ContainerCadastro>;
 }
 

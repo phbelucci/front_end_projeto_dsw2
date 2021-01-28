@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import logo from '../assets/offline_bolt-24px.svg';
 import { Link, useHistory } from 'react-router-dom';
 import api from '../api/api';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
 
 
 function Cadastro() {
@@ -70,6 +72,11 @@ function Cadastro() {
     `;
 
 
+    const handleToast = (err) => {
+        toast.error(err)
+    }
+
+
     const history = useHistory()
 
     const handleSubmit = (event) => {
@@ -82,14 +89,14 @@ function Cadastro() {
             "urlImage" : event.target.foto.value,
         };
         
-        api.post('users/', newUser)
+        api.post('/users', newUser)
         .then( (response) => {
             console.log(response);
-            window.alert("Cadastro realizado com sucesso!")
+            toast.error("Cadastro realizado com sucesso!")
             history.push('/login');
         })
         .catch( (err) => {
-            console.log("Erro", err);
+            toast.error("Erro ao cadastrar User!")
         })
     }
 
@@ -118,7 +125,9 @@ function Cadastro() {
     }
 
     return <ContainerCadastro>
+        <ToastContainer></ToastContainer>
         {handleFormulario()}
+        
     </ContainerCadastro>;
 }
 
